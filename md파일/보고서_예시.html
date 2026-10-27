@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>생산라인 검사 보고서 예시</title>
+<style>
+  :root { --ink:#1f2937; --sub:#6b7280; --line:#d1d5db; --head:#1e3a5f; --ok:#16a34a; --ng:#dc2626; --un:#d97706; --soft:#f3f6fa; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#fff; font-family:"Malgun Gothic","맑은 고딕",sans-serif; color:var(--ink); }
+  .page { width:794px; padding:34px 40px 26px; }
+  .top { display:flex; justify-content:space-between; align-items:flex-start; border-bottom:3px solid var(--head); padding-bottom:12px; }
+  .period { font-size:13px; color:var(--sub); }
+  .period b { display:block; font-size:17px; color:var(--head); margin-top:2px; }
+  h1 { margin:6px 0 0; font-size:24px; }
+  .meta { font-size:12.5px; color:var(--sub); text-align:right; line-height:1.7; }
+  h2 { font-size:15px; margin:20px 0 8px; color:var(--head); }
+  h2 small { font-weight:normal; color:var(--sub); font-size:11.5px; margin-left:6px; }
+  .cards { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  .card { background:var(--soft); border-radius:8px; padding:9px 6px; text-align:center; }
+  .card span { font-size:11.5px; color:var(--sub); }
+  .card b { display:block; font-size:22px; margin-top:2px; }
+  table { width:100%; border-collapse:collapse; font-size:12px; }
+  th { background:var(--soft); color:var(--sub); font-weight:600; text-align:left; padding:6px 8px; border-bottom:1px solid var(--line); }
+  td { padding:5px 8px; border-bottom:1px solid #eef0f3; }
+  td.n, th.n { text-align:right; }
+  .ok { color:var(--ok); } .ng { color:var(--ng); font-weight:600; } .un { color:var(--un); }
+  .sensors { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .sensor { border:1px solid var(--line); border-radius:8px; padding:8px 10px 4px; }
+  .sensor .t { font-size:12.5px; font-weight:600; }
+  .sensor .v { font-size:11px; color:var(--sub); }
+  .sensor svg { width:100%; height:76px; display:block; }
+  .axis { font-size:9px; fill:#9ca3af; }
+  .two { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+  .tag { display:inline-block; padding:1px 7px; border-radius:10px; font-size:11px; }
+  .tag.done { background:#dcfce7; color:#166534; } .tag.prog { background:#fef3c7; color:#92400e; }
+  .tag.stop { background:#fee2e2; color:#991b1b; } .tag.info { background:#e0e7ff; color:#3730a3; }
+  .foot { margin-top:16px; font-size:10.5px; color:#9ca3af; display:flex; justify-content:space-between; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="top">
+    <div>
+      <div class="period">검사 기간<b>2026-10-22 09:00 ~ 2026-10-22 18:00</b></div>
+      <h1>생산라인 검사 보고서</h1>
+    </div>
+    <div class="meta">라인 1 · 실제 라인<br>작성자 admin (관리자)<br>작성 시각 2026-10-22 18:05</div>
+  </div>
+
+  <h2>① 검사 요약</h2>
+  <div class="cards">
+    <div class="card"><span>총 검사</span><b>120</b></div>
+    <div class="card"><span>정상</span><b class="ok">104</b></div>
+    <div class="card"><span>불량</span><b class="ng">12</b></div>
+    <div class="card"><span>판정 불가</span><b class="un">4</b></div>
+    <div class="card"><span>불량률</span><b class="ng">10.3%</b></div>
+  </div>
+
+  <h2>② 기종별 분석</h2>
+  <table>
+    <tr><th>기종</th><th class="n">검사</th><th class="n">정상</th><th class="n">불량</th><th class="n">판정 불가</th><th class="n">불량률</th></tr>
+    <tr><td>iPhone 13</td><td class="n">50</td><td class="n">44</td><td class="n">5</td><td class="n">1</td><td class="n">10.2%</td></tr>
+    <tr><td>iPhone 14</td><td class="n">40</td><td class="n">35</td><td class="n">4</td><td class="n">1</td><td class="n">10.3%</td></tr>
+    <tr><td>iPhone 15</td><td class="n">20</td><td class="n">17</td><td class="n">2</td><td class="n">1</td><td class="n">10.5%</td></tr>
+    <tr><td>기종 미확인</td><td class="n">10</td><td class="n">8</td><td class="n">1</td><td class="n">1</td><td class="n">11.1%</td></tr>
+  </table>
+
+  <h2>③ 센서 변화 <small>09:00 ~ 18:00 · 10초마다 기록</small></h2>
+  <div class="sensors">
+    <div class="sensor">
+      <div class="t">온도 (℃)</div><div class="v">평균 24.9 · 최고 26.3 (14:00)</div>
+      <svg viewBox="0 0 200 76">
+        <line x1="10" y1="65" x2="190" y2="65" stroke="#e5e7eb"/>
+        <polyline fill="none" stroke="#ef4444" stroke-width="2" points="10,46 30,43 50,39 70,36 90,32 110,22 130,27 150,34 170,39 190,42"/>
+        <circle cx="110" cy="22" r="3" fill="#ef4444"/>
+        <text class="axis" x="10" y="75">09시</text><text class="axis" x="98" y="75">14시</text><text class="axis" x="174" y="75">18시</text>
+      </svg>
+    </div>
+    <div class="sensor">
+      <div class="t">습도 (%)</div><div class="v">평균 41.3 · 최고 45 (14:00)</div>
+      <svg viewBox="0 0 200 76">
+        <line x1="10" y1="65" x2="190" y2="65" stroke="#e5e7eb"/>
+        <polyline fill="none" stroke="#3b82f6" stroke-width="2" points="10,41 30,38 50,35 70,32 90,26 110,20 130,23 150,29 170,32 190,35"/>
+        <circle cx="110" cy="20" r="3" fill="#3b82f6"/>
+        <text class="axis" x="10" y="75">09시</text><text class="axis" x="98" y="75">14시</text><text class="axis" x="174" y="75">18시</text>
+      </svg>
+    </div>
+    <div class="sensor">
+      <div class="t">가스 (MQ-9, 0~1023)</div><div class="v">평균 184 · 최고 236 (14:00)</div>
+      <svg viewBox="0 0 200 76">
+        <line x1="10" y1="65" x2="190" y2="65" stroke="#e5e7eb"/>
+        <polyline fill="none" stroke="#8b5cf6" stroke-width="2" points="10,50 30,45.5 50,44 70,39.5 90,35 110,24.2 130,32 150,38 170,42.5 190,47"/>
+        <circle cx="110" cy="24.2" r="3" fill="#8b5cf6"/>
+        <text class="axis" x="10" y="75">09시</text><text class="axis" x="98" y="75">14시</text><text class="axis" x="174" y="75">18시</text>
+      </svg>
+    </div>
+  </div>
+
+  <div class="two">
+    <div>
+      <h2>④ 문제·조치 <small>발생 3 · 조치 중 1 · 종결 2</small></h2>
+      <table>
+        <tr><th>시각</th><th>문제</th><th>상태</th></tr>
+        <tr><td>10:12</td><td>카메라 인식 지연</td><td><span class="tag done">종결</span></td></tr>
+        <tr><td>11:42</td><td>벨트 이상 소음</td><td><span class="tag done">종결</span></td></tr>
+        <tr><td>16:30</td><td>분류 서보 동작 불량</td><td><span class="tag prog">조치 중</span></td></tr>
+      </table>
+
+      <h2>⑤ 검사 이력 <small>최근 5건</small></h2>
+      <table>
+        <tr><th>시각</th><th>판정</th><th>기종</th><th class="n">신뢰도</th></tr>
+        <tr><td>17:56:41</td><td class="ok">정상</td><td>iPhone 14</td><td class="n">94%</td></tr>
+        <tr><td>17:55:08</td><td class="ng">불량</td><td>iPhone 13</td><td class="n">88%</td></tr>
+        <tr><td>17:53:30</td><td class="ok">정상</td><td>iPhone 15</td><td class="n">91%</td></tr>
+        <tr><td>17:51:12</td><td class="un">판정 불가</td><td>기종 미확인</td><td class="n">42%</td></tr>
+        <tr><td>17:49:57</td><td class="ok">정상</td><td>iPhone 13</td><td class="n">96%</td></tr>
+      </table>
+    </div>
+    <div>
+      <h2>⑥ 이벤트 기록</h2>
+      <table>
+        <tr><th>시각</th><th>구분</th><th>내용</th></tr>
+        <tr><td>09:00</td><td><span class="tag info">벨트</span></td><td>벨트 구동</td></tr>
+        <tr><td>10:12</td><td><span class="tag info">문제</span></td><td>카메라 인식 지연 등록</td></tr>
+        <tr><td>11:42</td><td><span class="tag stop">긴급 정지</span></td><td>긴급 정지 버튼 작동</td></tr>
+        <tr><td>11:45</td><td><span class="tag stop">긴급 정지</span></td><td>긴급 정지 해제</td></tr>
+        <tr><td>11:46</td><td><span class="tag info">벨트</span></td><td>벨트 다시 구동</td></tr>
+        <tr><td>13:20</td><td><span class="tag info">문제</span></td><td>벨트 이상 소음 종결</td></tr>
+        <tr><td>16:30</td><td><span class="tag info">문제</span></td><td>분류 서보 동작 불량 등록</td></tr>
+        <tr><td>17:58</td><td><span class="tag info">벨트</span></td><td>벨트 정지</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="foot"><span>※ 예시 데이터로 만든 보고서입니다.</span><span>생산라인 검사·AI 문제대응 시스템</span></div>
+</div>
+</body>
+</html>

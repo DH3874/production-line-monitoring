@@ -1,0 +1,45 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\00_Shared\ProductionLine.Shared\ProductionLine.Shared.csproj" />
+    <ProjectReference Include="..\..\04_Vision\ProductionLine.Vision\ProductionLine.Vision.csproj" />
+    <Compile Include="..\..\00_Shared\ProductionLine.ChatUI\GroupChatPanel.cs" Link="Chat\GroupChatPanel.cs" />
+    <Compile Include="..\..\00_Shared\ProductionLine.ConnectUI\*.cs" Link="Connect\%(Filename)%(Extension)" />
+    <Compile Include="..\..\00_Shared\ProductionLine.ChatUI\SensorTrendPanel.cs" Link="Charts\SensorTrendPanel.cs" />
+    <PackageReference Include="System.IO.Ports" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\tools\arduino-cli\**\*"
+          Link="Tools\arduino-cli\%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="Always"
+          CopyToPublishDirectory="Always" />
+    <None Include="..\..\hardware\ConveyorYoloControl\**\*"
+          Link="Hardware\ConveyorYoloControl\%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="Always"
+          CopyToPublishDirectory="Always" />
+    <None Include="..\..\04_Vision\models\**\*.onnx"
+          Link="Models\%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="Always"
+          CopyToPublishDirectory="Always" />
+    <None Include="..\..\04_Vision\models\**\model_info.json"
+          Link="Models\%(RecursiveDir)%(Filename)%(Extension)"
+          CopyToOutputDirectory="Always"
+          CopyToPublishDirectory="Always" />
+    <None Include="..\..\04_Vision\models\background\empty_belt_reference.jpg"
+          Link="Models\background\empty_belt_reference.jpg"
+          CopyToOutputDirectory="Always"
+          CopyToPublishDirectory="Always" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <!-- 화면 배율(예: 175%)에서 글자가 잘리지 않도록 100% 기준 화면을 윈도우가 키워서 보여 줌 (김하균) -->
+    <ApplicationHighDpiMode>DpiUnawareGdiScaled</ApplicationHighDpiMode>
+  </PropertyGroup>
+
+</Project>

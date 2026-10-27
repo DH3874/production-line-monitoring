@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup><OutputType>Exe</OutputType><AssemblyName>Verification</AssemblyName><TargetFramework>net8.0-windows</TargetFramework><UseWindowsForms>true</UseWindowsForms><ImplicitUsings>enable</ImplicitUsings><Nullable>enable</Nullable></PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../../02_UserApp/ProductionLine.UserApp/ProductionLine.UserApp.csproj" />
+    <ProjectReference Include="../../01_AdminApp/ProductionLine.AdminApp/ProductionLine.AdminApp.csproj" />
+    <Compile Include="../../03_Server/ProductionLine.Server/Infrastructure/RemoteLineStore.cs" Link="RemoteLineStore.cs" />
+    <Compile Include="../../02_UserApp/Verification/HardwareProtocolChecks.cs" Link="HardwareProtocolChecks.cs" />
+    <Compile Include="../../02_UserApp/Verification/ConveyorProtocolChecks.cs" Link="ConveyorProtocolChecks.cs" />
+  </ItemGroup>
+</Project>

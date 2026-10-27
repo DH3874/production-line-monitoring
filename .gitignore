@@ -1,0 +1,71 @@
+# .NET / Visual Studio build output and per-user state
+**/bin/
+**/obj/
+.vs/
+.vscode/
+.idea/
+.dotnet-home/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+*.cache
+TestResults/
+*.trx
+*.coverage
+*.coveragexml
+
+# Runtime database, messages, uploaded inspection photos and logs
+/03_Server/ProductionLine.Server/App_Data/
+/03_Server/ProductionLine.Server/data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+*.sqlite3
+*.log
+*.jsonl
+
+# Local credentials. Templates can be committed; actual values cannot.
+.env
+.env.*
+!.env.example
+appsettings.Local.json
+appsettings.*.local.json
+secrets.json
+credentials.json
+*.dpapi
+*.key
+*.pem
+*.pfx
+*.p12
+
+# Python, training runs and generated packages
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+node_modules/
+**/runs/
+**/output/
+**/outputs/
+/artifacts/
+/dist/
+/publish/
+*.zip
+*.7z
+*.tmp
+*.temp
+*.bak
+*.old
+~$*
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Keep required ONNX models, reference images, Arduino source and CLI binary.
+# Do not add blanket *.onnx / *.exe / *.jpg / *.png exclusions.

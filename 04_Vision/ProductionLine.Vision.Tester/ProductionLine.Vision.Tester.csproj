@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProductionLine.Vision\ProductionLine.Vision.csproj" />
+    <None Include="..\samples\normal\cap_normal_001.png"
+          Link="samples\normal\cap_normal_001.png"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\samples\iphone\iphone_sample.jpg"
+          Link="samples\iphone\iphone_sample.jpg"
+          CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\models\best.onnx"
+          Link="Models\best.onnx"
+          CopyToOutputDirectory="Always" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

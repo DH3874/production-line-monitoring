@@ -1,0 +1,10 @@
+# Preserve existing C#/script bytes; avoid incidental mass line-ending changes.
+* -text
+*.md text eol=lf
+.gitignore text eol=lf
+.gitattributes text eol=lf
+*.onnx binary
+*.exe binary
+*.png binary
+*.jpg binary
+*.jpeg binary
